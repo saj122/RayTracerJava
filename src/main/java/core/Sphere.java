@@ -5,11 +5,10 @@ import math.Vec3;
 
 public class Sphere extends Hitable
 {
-    Vec3 center;
-    float radius;
-    Material mat;
+    private Vec3 center;
+    private float radius;
+    private Material mat;
 
-    public Sphere() {}
     public Sphere(Vec3 cen, float r, Material m)
     {
         this.center = cen;

@@ -25,9 +25,9 @@ public class Materials
         assertEquals(lmbnScatter.first(), true);
 
         // Can only test origin as end is randomly generated from surface.
-        assertEquals(lmbnScatter.second().second().origin.x(), 0.5);
-        assertEquals(lmbnScatter.second().second().origin.y(), 0.5);
-        assertEquals(lmbnScatter.second().second().origin.z(), 0.5);
+        assertEquals(lmbnScatter.second().second().origin().x(), 0.5);
+        assertEquals(lmbnScatter.second().second().origin().y(), 0.5);
+        assertEquals(lmbnScatter.second().second().origin().z(), 0.5);
 
         assertEquals(lmbnScatter.second().first().x(), 0.5);
         assertEquals(lmbnScatter.second().first().y(), 0.4);
@@ -45,9 +45,16 @@ public class Materials
         hr.normal = new Vec3(0.5,0.5,0.5);
 
         Pair<Boolean, Pair<Vec3, Ray>> mnScatter = mn.scatter(ray, hr);
-        System.out.println(mnScatter.first());
-        System.out.println(mnScatter.second().second());
 
+        assertEquals(mnScatter.first(), false);
+
+        assertEquals(mnScatter.second().second().origin().x(), 0.5);
+        assertEquals(mnScatter.second().second().origin().y(), 0.5);
+        assertEquals(mnScatter.second().second().origin().z(), 0.5);
+
+        assertEquals(mnScatter.second().first().x(), 0.5);
+        assertEquals(mnScatter.second().first().y(), 0.3);
+        assertEquals(mnScatter.second().first().z(), 0.2);
     }
 
     @Test
@@ -61,7 +68,15 @@ public class Materials
         hr.normal = new Vec3(0.5,0.5,0.5);
 
         Pair<Boolean, Pair<Vec3, Ray>> dmScatter = dm.scatter(ray, hr);
-        System.out.println(dmScatter.first());
-        System.out.println(dmScatter.second().second());
+
+        assertEquals(dmScatter.first(), true);
+
+        assertEquals(dmScatter.second().second().origin().x(), 0.5);
+        assertEquals(dmScatter.second().second().origin().y(), 0.5);
+        assertEquals(dmScatter.second().second().origin().z(), 0.5);
+
+        assertEquals(dmScatter.second().first().x(), 0.5);
+        assertEquals(dmScatter.second().first().y(), 0.4);
+        assertEquals(dmScatter.second().first().z(), 0.2);
     }
 }

@@ -23,8 +23,8 @@ public class Dielectric extends Material
         Vec3 outward_normal;
         Vec3 reflected = RTUtils.reflect(r_in.direction(), rec.normal);
         double ni_over_nt;
-        Vec3 attenuation = new Vec3();
-        Ray scattered = new Ray();
+        Vec3 attenuation = new Vec3(0.0,0.0,0.0);
+        Ray scattered = new Ray(new Vec3(0.0,0.0,0.0),new Vec3(0.0,0.0,0.0));
         attenuation.set(this.trans);
         double cosine;
         double reflect_prob;

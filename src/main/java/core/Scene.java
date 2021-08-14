@@ -24,7 +24,7 @@ public class Scene
             Pair<Boolean, Pair<Vec3,Ray>> sa = wh.second().mat.scatter(r,wh.second());
             if(depth < 5 && sa.first())
             {
-                if(sa.second().second().end.squared_length() == 0)
+                if(sa.second().second().direction().squared_length() == 0)
                 {
                     return sa.second().first();
                 }
