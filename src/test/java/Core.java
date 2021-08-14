@@ -26,7 +26,7 @@ public class Core
 
         assertEquals(ret.first(), true);
 
-        assertEquals(ret.second().p.x(), 100.0);
+        assertEquals(ret.second().p.x(), 0.7886751345948129);
         assertEquals(ret.second().p.y(), 0.7886751345948129);
         assertEquals(ret.second().p.z(), 0.7886751345948129);
 
