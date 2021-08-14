@@ -1,3 +1,12 @@
+/**
+ * The Dielectric class implements the glass materials
+ * light ray scatter function.
+ *
+ * @author  Stephen Johnson
+ * @version 1.0
+ * @since   2021-8-14
+ */
+
 package material;
 
 import core.HitRecord;
@@ -9,8 +18,13 @@ import math.Vec3;
 
 public class Dielectric extends Material
 {
-    public float ref_idx;
-    public Vec3 trans;
+    /**
+     * Declared Vec3 for the transparency following snell's law and
+     * a float for the index of refraction.
+     */
+    private float ref_idx;
+    private Vec3 trans;
+
     public Dielectric(Vec3 tr, float ri)
     {
         this.ref_idx = ri;

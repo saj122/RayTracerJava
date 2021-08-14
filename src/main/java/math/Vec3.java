@@ -16,6 +16,7 @@ public class Vec3
      * (x,y,z) vector coordinates.
      */
     private double[] xyz = new double[3];
+
     public Vec3(double x, double y, double z)
     {
         xyz[0] = x;

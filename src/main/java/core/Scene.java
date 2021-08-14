@@ -1,3 +1,12 @@
+/**
+ * The Scene class encapsulates the scene and renders
+ * it. It contains functions for saving the image.
+ *
+ * @author  Stephen Johnson
+ * @version 1.0
+ * @since   2021-8-14
+ */
+
 package core;
 
 import material.Dielectric;
@@ -17,13 +26,21 @@ import java.util.Random;
 
 public class Scene
 {
+    /**
+     * Recursive function for calculating the color of the pixel the ray
+     * is emitted from.
+     * @param r This is the ray to be emitted.
+     * @param world This is the world scene of hitables.
+     * @param depth How many times to sample the pixel.
+     * @return Vec3.
+     */
     private static Vec3 ray_color(Ray r, Hitable world, int depth)
     {
         Pair<Boolean, HitRecord> wh = world.hit(r,0.001f,Float.MAX_VALUE);
         if(wh.first())
         {
             Pair<Boolean, Pair<Vec3,Ray>> sa = wh.second().mat.scatter(r,wh.second());
-            if(depth < 5 && sa.first())
+            if(depth < 50 && sa.first())
             {
                 if(sa.second().second().direction().squared_length() == 0)
                 {
@@ -44,28 +61,33 @@ public class Scene
         }
     }
 
+    /**
+     * Static function for building the
+     * environment to be rendered.
+     * @return Hitable.
+     */
     public static Hitable buildScene()
     {
         List<Hitable> list = new ArrayList<>();
 
         list.add(new Sphere(new Vec3(0,-1000,0),1000, new Lambertian(new Vec3(0.5,0.5,0.5))));
 
-        for(int i = 0;i < 3;++i)
+        Random r = new Random();
+        for(int i = 0;i < 2;++i)
         {
-            Random r = new Random();
-            double x = -5.0 + r.nextDouble() * (10.0);
+            double x = -4.0 + r.nextDouble() * (8.0);
             double y = 0.5 + r.nextDouble() * (0.75-0.5);
-            double z = -5.0 + r.nextDouble() * (10.0);
+            double z = -4.0 + r.nextDouble() * (8.0);
             list.add(new Sphere(new Vec3(x, y, z), 0.5f, new Metal(new Vec3(0.5, 0.5, 0.5), 0.1f)));
 
-            x = -5.0 + r.nextDouble() * (10.0);
+            x = -4.0 + r.nextDouble() * (8.0);
             y = 0.5 + r.nextDouble() * (0.75-0.5);
-            z = -5.0 + r.nextDouble() * (10.0);
+            z = -4.0 + r.nextDouble() * (8.0);
             list.add(new Sphere(new Vec3(x, y, z), 0.5f, new Lambertian(new Vec3(0.7, 0.6, 0.5))));
 
-            x = -5.0 + r.nextDouble() * (10.0);
+            x = -4.0 + r.nextDouble() * (8.0);
             y = 0.5 + r.nextDouble() * (0.75-0.5);
-            z = -5.0 + r.nextDouble() * (10.0);
+            z = -4.0 + r.nextDouble() * (8.0);
             list.add(new Sphere(new Vec3(x, y, z), 0.5f, new Dielectric(new Vec3(0.7, 0.6, 0.5), 1.5f)));
         }
 

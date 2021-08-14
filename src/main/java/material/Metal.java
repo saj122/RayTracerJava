@@ -1,3 +1,12 @@
+/**
+ * The Metal class implements the metal materials
+ * light ray scatter function.
+ *
+ * @author  Stephen Johnson
+ * @version 1.0
+ * @since   2021-8-14
+ */
+
 package material;
 
 import core.HitRecord;
@@ -9,8 +18,12 @@ import math.Vec3;
 
 public class Metal extends Material
 {
-    public float fuzz;
-    public Vec3 albedo;
+    /**
+     * Declared float variable for fuzziness for larger spheres and a
+     * Vec3 for the color.
+     */
+    private float fuzz;
+    private Vec3 albedo;
 
     public Metal(Vec3 a, float f)
     {

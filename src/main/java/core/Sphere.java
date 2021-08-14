@@ -1,3 +1,17 @@
+/**
+ * The Sphere class implements the sphere shape and
+ * intersection test with ray.
+ * Taken from Ray Tracing Gems Haines Akenine-Moller
+ * Pages 87-93. Precision Improvements for Ray/Sphere Intersection.
+ * Tried intersection test from Real-Time Collision Detection Ericson
+ * Received weird results and poor performance.
+ * Pages 178-179. Intersecting Ray or Segment Against Sphere.
+ *
+ * @author  Stephen Johnson
+ * @version 1.0
+ * @since   2021-8-14
+ */
+
 package core;
 
 import math.Ray;
@@ -5,6 +19,10 @@ import math.Vec3;
 
 public class Sphere extends Hitable
 {
+    /**
+     * Declared float for holding radius, Vec3 for center point,
+     * and material for the hitable.
+     */
     private Vec3 center;
     private float radius;
     private Material mat;

@@ -1,3 +1,12 @@
+/**
+ * The Lambertian class implements the matte materials
+ * light ray scatter function.
+ *
+ * @author  Stephen Johnson
+ * @version 1.0
+ * @since   2021-8-14
+ */
+
 package material;
 
 import core.HitRecord;
@@ -9,7 +18,10 @@ import math.Vec3;
 
 public class Lambertian extends Material
 {
-    Vec3 albedo;
+    /**
+     * Declared Vec3 for the color.
+     */
+    private Vec3 albedo;
 
     public Lambertian(Vec3 a)
     {
