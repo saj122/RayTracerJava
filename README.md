@@ -4,6 +4,8 @@ In 3D computer graphics, ray tracing is a rendering technique for generating an 
 
 The technique is capable of producing a high degree of visual realism, more so than typical scanline rendering methods, but at a greater computational cost.
 
+-- <cite>https://en.wikipedia.org/wiki/Ray_tracing_(graphics)
+
 ## Result
    ![Ray Traced Image](output.bmp)
 
