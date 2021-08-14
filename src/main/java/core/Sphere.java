@@ -26,7 +26,7 @@ public class Sphere extends Hitable
         double b = Vec3.dot(oc, r.direction());
         double c = Vec3.dot(oc,oc) - radius*radius;
         double discriminant = b*b - a*c;
-        if(discriminant > 0)
+        if(discriminant >= 0)
         {
             rec.mat = mat;
             rec.h = this;

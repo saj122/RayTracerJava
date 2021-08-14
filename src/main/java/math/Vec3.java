@@ -10,6 +10,21 @@ public class Vec3
         xyz[1] = y;
         xyz[2] = z;
     }
+
+    @Override
+    public String toString()
+    {
+        StringBuilder sb = new StringBuilder();
+        sb.append("(");
+        sb.append(xyz[0]);
+        sb.append(",");
+        sb.append(xyz[1]);
+        sb.append(",");
+        sb.append(xyz[2]);
+        sb.append(")");
+        return sb.toString();
+    }
+
     public double x() {return xyz[0];}
     public double y() {return xyz[1];}
     public double z() {return xyz[2];}
