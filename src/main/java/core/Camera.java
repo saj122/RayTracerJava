@@ -1,3 +1,11 @@
+/**
+ * The Camera class implements the camera for setting the preferences of the view for rendering.
+ *
+ * @author  Stephen Johnson
+ * @version 1.0
+ * @since   2021-8-14
+ */
+
 package core;
 
 import math.Ray;
@@ -5,6 +13,15 @@ import math.Vec3;
 
 public class Camera
 {
+    /**
+     * Declared Vec3 for the origin of the camera,
+     * declared Vec3 for the lower left corner of the view plane,
+     * declared Vec3 for the horizontal vector of the camera,
+     * declared Vec3 for the vertical vector of the camera.
+     * Declared Vec3 for the u vector of image plane, the v vector of
+     * the image plane, and the forward vector of the camera.
+     * Declared float for lens radius.
+     */
     Vec3 origin;
     Vec3 lower_left_corner;
     Vec3 horizontal;
@@ -27,6 +44,12 @@ public class Camera
         vertical = v.mul(2*half_height*focus_dist);
     }
 
+    /**
+     * Function returns ray emitted from the lens of the camera.
+     * @param s The horizontal pixel position of camera.
+     * @param t The vertical pixel position of camera.
+     * @return Ray.
+     */
     public Ray getRay(float s, float t)
     {
         Vec3 rd = RTUtils.randomInUnitDisk().mul(lens_radius);

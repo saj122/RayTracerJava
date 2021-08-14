@@ -1,3 +1,11 @@
+/**
+ * The Hitables class keeps track of all hitable's hit during rendering.
+ *
+ * @author  Stephen Johnson
+ * @version 1.0
+ * @since   2021-8-14
+ */
+
 package core;
 
 import math.Ray;
@@ -10,7 +18,11 @@ import java.util.stream.Collectors;
 
 public class Hitables extends Hitable
 {
-    public List<Hitable> list = new ArrayList<>();
+    /**
+     * Declared list for holding the
+     * hit objects in the scene.
+     */
+    private List<Hitable> list = new ArrayList<>();
 
     public Hitables() {}
     public Hitables(List<Hitable> l)

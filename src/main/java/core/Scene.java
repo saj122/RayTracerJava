@@ -94,6 +94,15 @@ public class Scene
         return new Hitables(list);
     }
 
+    /**
+     * Static function for rendering the scene.
+     * @param cam Camera of the scene.
+     * @param world Scene of objects used to do hit tests.
+     * @param image_width Image width.
+     * @param image_height Image height.
+     * @param samples_per_pixel Samples per pixel of image.
+     * @return BufferedImage.
+     */
     public static BufferedImage render(Camera cam, Hitable world, int image_width, int image_height, int samples_per_pixel)
     {
         BufferedImage image = new BufferedImage(image_width,image_height,BufferedImage.TYPE_INT_RGB);
@@ -119,6 +128,11 @@ public class Scene
         return image;
     }
 
+    /**
+     * Static function for saving the rendered scene as image.
+     * @param image Image to be saved.
+     * @see IOException
+     */
     public static void saveImage(BufferedImage image)
     {
         File outputFile = new File("output.bmp");

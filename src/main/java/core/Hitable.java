@@ -18,7 +18,7 @@ public abstract class Hitable
      * @param r Ray to be intersected.
      * @param t_min Minimum distance of ray from origin.
      * @param t_max Maximum distance of ray from origin.
-     * @return Pair<Boolean, HitRecord>.
+     * @return Pair.
      */
     public abstract Pair<Boolean, HitRecord> hit(Ray r, float t_min, float t_max);
 }
