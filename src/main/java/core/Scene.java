@@ -13,6 +13,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Scene
 {
@@ -48,9 +49,25 @@ public class Scene
         List<Hitable> list = new ArrayList<>();
 
         list.add(new Sphere(new Vec3(0,-1000,0),1000, new Lambertian(new Vec3(0.5,0.5,0.5))));
-        list.add(new Sphere(new Vec3(-3.0, 0.7, 0.0), 0.5f, new Metal(new Vec3(0.5, 0.5, 0.5), 0.1f)));
-        list.add(new Sphere(new Vec3(3.0, 0.7, 0.0), 0.5f, new Lambertian(new Vec3(0.7, 0.6, 0.5))));
-        list.add(new Sphere(new Vec3(1.0, 0.7, 0.0), 0.5f, new Dielectric(new Vec3(0.5,0.5,0.5), 1.5f)));
+
+        for(int i = 0;i < 3;++i)
+        {
+            Random r = new Random();
+            double x = -5.0 + r.nextDouble() * (10.0);
+            double y = 0.5 + r.nextDouble() * (0.75-0.5);
+            double z = -5.0 + r.nextDouble() * (10.0);
+            list.add(new Sphere(new Vec3(x, y, z), 0.5f, new Metal(new Vec3(0.5, 0.5, 0.5), 0.1f)));
+
+            x = -5.0 + r.nextDouble() * (10.0);
+            y = 0.5 + r.nextDouble() * (0.75-0.5);
+            z = -5.0 + r.nextDouble() * (10.0);
+            list.add(new Sphere(new Vec3(x, y, z), 0.5f, new Lambertian(new Vec3(0.7, 0.6, 0.5))));
+
+            x = -5.0 + r.nextDouble() * (10.0);
+            y = 0.5 + r.nextDouble() * (0.75-0.5);
+            z = -5.0 + r.nextDouble() * (10.0);
+            list.add(new Sphere(new Vec3(x, y, z), 0.5f, new Dielectric(new Vec3(0.7, 0.6, 0.5), 1.5f)));
+        }
 
         return new Hitables(list);
     }

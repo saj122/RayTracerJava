@@ -5,6 +5,8 @@ import math.Ray;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.stream.Collectors;
 
 public class Hitables extends Hitable
 {
@@ -21,16 +23,18 @@ public class Hitables extends Hitable
         HitRecord temp_rec = new HitRecord();
         boolean hit_anything = false;
         double closest_so_far = t_max;
-        for(int i = 0; i<list.size(); i++)
+
+        for(Hitable hit : list)
         {
-            Pair<Boolean,HitRecord> bhr = list.get(i).hit(r, t_min, (float)closest_so_far);
-            if(bhr.first())
+            Pair<Boolean,HitRecord> hit_rec = hit.hit(r, t_min,(float) closest_so_far);
+            if(hit_rec.first())
             {
-                temp_rec = bhr.second();
+                temp_rec = hit_rec.second();
                 hit_anything = true;
                 closest_so_far = temp_rec.t;
             }
         }
+
         return new Pair<>(hit_anything, temp_rec);
     }
 }

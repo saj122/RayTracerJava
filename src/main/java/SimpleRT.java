@@ -1,3 +1,12 @@
+/**
+ * The RayTracer program implements an application that
+ * ray traces an environment of spheres and returns a rendered image.
+ *
+ * @author  Stephen Johnson
+ * @version 1.0
+ * @since   2021-8-14
+ */
+
 import core.*;
 import material.Dielectric;
 import material.Lambertian;
@@ -28,7 +37,7 @@ public class SimpleRT
         float aspect_ratio = 16.0f / 9.0f;
         int image_width = 1280;
         int image_height = (int)(image_width / aspect_ratio);
-        int samples_per_pixel = 1000;
+        int samples_per_pixel = 10;
 
         StringBuilder sb = new StringBuilder();
         sb.append("P3\n");
