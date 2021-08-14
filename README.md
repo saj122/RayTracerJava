@@ -16,3 +16,7 @@ Tested with Windows and Linux using:
 - IntelliJ IDEA Community 2021
 
 Import the gradle project into IDEA. Build the project and run module SimpleRT. The output image will be output.bmp in the root project folder.
+
+## Testing
+
+To test the project, build the test module and run the unit tests.
