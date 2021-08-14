@@ -13,5 +13,7 @@ jobs:
         with:
           java-version: '16'
           distribution: 'adopt'
-      - name: Run the Gradle unit tests
-        run: ./gradlew -b ci.gradle tests
+      - name: Validate Gradle wrapper
+        uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
+      - name: Run the Gradle package task
+        run: ./gradlew -b ci.gradle test
