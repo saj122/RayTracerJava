@@ -5,6 +5,11 @@ plugins {
 group 'org.example'
 version '1.0-SNAPSHOT'
 
+wrapper {
+    gradleVersion = '7.1'
+    distributionUrl = distributionUrl.replace("bin", "all")
+}
+
 repositories {
     mavenCentral()
 }
@@ -17,3 +22,4 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
