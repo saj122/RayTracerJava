@@ -28,7 +28,7 @@ public class SimpleRT
         float aspect_ratio = 16.0f / 9.0f;
         int image_width = 1280;
         int image_height = (int)(image_width / aspect_ratio);
-        int samples_per_pixel = 10;
+        int samples_per_pixel = 1000;
 
         StringBuilder sb = new StringBuilder();
         sb.append("P3\n");
